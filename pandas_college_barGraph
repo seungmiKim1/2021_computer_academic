@@ -1,0 +1,95 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
+import pandas as pd 
+junmundae = pd.read_csv("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)/junmun.csv",encoding='utf-8')
+junmundae
+
+
+# In[6]:
+
+
+junmundae.info()
+
+
+# In[13]:
+
+
+junmundae.isna().sum()
+
+
+# In[35]:
+
+
+junmundae.fillna('입력예정')
+
+
+# In[37]:
+
+
+junmundae_treat = junmundae.drop(columns=['대학명','영문명','주소','홈페이지','전화','팩스','대표메일'])
+
+
+# In[38]:
+
+
+print(junmundae_treat)
+
+
+# In[39]:
+
+
+junmundae_treat.info()
+
+
+# In[40]:
+
+
+junmundae_treat['지역']
+
+
+# In[128]:
+
+
+junmundae_treat = ['Gangwon','Gwangju','Gyeonggi','Gyeongnam','Gyeongbuk','Daegu','Daejeon','Busan','Seoul','Sejong','Ulsan','Incheon','Jeonnam','Jeonbuk','Jeju','Chungnam','Chungbuk']
+
+
+# In[129]:
+
+
+print(junmundae_treat)
+
+
+# In[130]:
+
+
+print(len(junmundae_treat))
+
+
+# In[142]:
+
+
+import matplotlib.pyplot as plt 
+get_ipython().run_line_magic('matplotlib', 'inline')
+
+x = junmundae_treat 
+y = [8,6,31,10,15,7,4,9,9,1,2,3,9,8,2,6,5] 
+
+plt.bar(x,y)
+
+plt.xticks(rotation=60)
+plt.xlabel('Area')
+plt.ylabel('Figure')
+plt.title('Bargraph of Area : South Korea College Set')
+plt.rcParams['axes.grid']=True
+plt.show()
+
+
+# In[ ]:
+
+
+
+
